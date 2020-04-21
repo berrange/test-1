@@ -7,11 +7,12 @@ addons:
     update: true
     packages:
       - glib
+      - gnutls
 
 matrix:
   include:
     - osx_image: xcode11.3
 
 script:
-  - gcc -o hello `pkg-config --cflags --libs glib-2.0` hello.c
+  - gcc -o hello `pkg-config --cflags --libs glib-2.0 gnutls` hello.c
   - ./hello
